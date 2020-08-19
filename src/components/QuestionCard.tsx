@@ -1,6 +1,6 @@
 import React from 'react'
 import { AnswerObject } from '../App'
-import { Wrapper, ButtonWrapper } from './Question.styles'
+import { Wrapper, ButtonWrapper } from './Question'
 
 type Props = {
   question: string
@@ -38,6 +38,6 @@ const QuestionCard: React.FC<Props> = ({
       ))}
     </div>
   </Wrapper>
-)
+)   
 
 export default QuestionCard
