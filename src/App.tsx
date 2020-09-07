@@ -3,6 +3,7 @@ import { fetchQuizQuestions } from './API';
 import QuestionCard from './components/QuestionCard';
 import { QuestionsState, Difficulty } from './API';
 import { GlobalStyle, Wrapper } from './App.styles';
+import firebase from './firebase'
 
 export type AnswerObject = {
   question: string;
@@ -14,6 +15,10 @@ export type AnswerObject = {
 const TOTAL_QUESTIONS = 10;
 
 const App: React.FC = () => {
+  const messaging = firebase.messaging()
+  messaging.requestPermission().then(() => {
+    return messaging.getToken()
+  }).then((token) => console.log('Token ', token))
   const [loading, setLoading] = useState(false);
   const [questions, setQuestions] = useState<QuestionsState[]>([]);
   const [number, setNumber] = useState(0);
