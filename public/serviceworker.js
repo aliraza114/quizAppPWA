@@ -6,7 +6,8 @@ const urlsToCache = ['index.html',
 '/static/css/main.8ee7fde6.chunk.css',
 '/manifest.json',
 '/logo192.png',
-'https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple'
+'https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple',
+'https://quirky-jepsen-541217.netlify.app/'
 ]
 
 const self = this
@@ -17,7 +18,6 @@ self.addEventListener('install', (event) => {
         caches.open(CASHE_NAME)
             .then((cache) => {
                 console.log('Opened cache');
-
                 return cache.addAll(urlsToCache);
             })
     )
@@ -55,12 +55,9 @@ this.addEventListener('fetch', (event) => {
                         }).catch((err) => {
                             console.log('err', err)
                         })
-
                     }
-
                 }).catch((err) => {
                     console.log('err', err)
-
                 })
         )
     }
