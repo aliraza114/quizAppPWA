@@ -7,7 +7,12 @@ const urlsToCache = ['index.html',
 '/manifest.json',
 '/logo192.png',
 'https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple',
-'https://quirky-jepsen-541217.netlify.app/'
+'https://quirky-jepsen-541217.netlify.app/',
+'static/js/2.fb12eb98.chunk.js',
+'/',
+'main.bb67e677.chunk.js',
+
+
 ]
 
 const self = this
@@ -71,6 +76,7 @@ self.addEventListener('activate', (event) => {
 
     event.waitUntil(
         caches.keys().then((casheNames) => Promise.all(
+            // eslint-disable-next-line array-callback-return
             casheNames.map((cacheName) => {
                 if (!casheWhitelist.includes(cacheName)) {
                     return caches.delete(cacheName)
